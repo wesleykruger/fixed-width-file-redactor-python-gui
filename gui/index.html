@@ -1,0 +1,116 @@
+<html>
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="linkers/hasher.js"></script>
+  <body>
+    <div class="jumbotron">Fixed-Width File Redactor</div>
+    <div class="row">
+      <button type="button" class="btn-dark" onclick="whats_here()">Updates</button>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <form>
+          <div class="form-group">
+            <label for="inputFileLocation">Input File Location</label>
+            <input
+              type="text"
+              class="form-control inputFileLocation"
+              id="inputFileLocation"
+              aria-describedby="inputFileHelp"
+              placeholder="Enter the full directory of your input file"
+            />
+          </div>
+          <div class="form-group">
+            <label for="outputFileLocation">Output File Location</label>
+            <input
+              type="text"
+              class="form-control outputFileLocation"
+              id="outputFileLocation"
+              aria-describedby="outputFileHelp"
+              placeholder="Enter the full directory of your output file. If the file does not exist, it will be created."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="form-holder">
+      <div class="row" id="clone-row">
+        <div class="col-12">
+          <form class="repeatable-form">
+            <div class="form-group">
+              <label for="recordIndicatorValue">Record Indicator</label>
+              <input
+                type="text"
+                class="form-control recordIndicatorValue"
+                id="recordIndicatorValue"
+                placeholder="Enter the Record Indicator Value"
+              />
+            </div>
+            <div class="form-group">
+              <label for="recordStartPosition"
+                >Record Indicator: Enter the position of the first character of
+                the Indicator Value Above (zero-based integer value)</label
+              >
+              <input
+                type="number"
+                class="form-control recordStartPosition"
+                id="recordStartPosition"
+                placeholder="Enter the position of the first character"
+              />
+            </div>
+            <div class="form-group">
+              <label for="redactStartPosition"
+                >Redact Start Position: Enter the position of the first
+                character of the portion that will need to be redacted if the
+                above record indicator is found (zero-based integer
+                value)</label
+              >
+              <input
+                type="number"
+                class="form-control redactStartPosition"
+                id="redactStartPosition"
+                placeholder="Enter the position of the first character"
+              />
+            </div>
+            <div class="form-group">
+              <label for="redactLength"
+                >Redact Length: Enter the length of the value that will need
+                to be redacted.</label
+              >
+              <input
+                type="number"
+                class="form-control redactLength"
+                id="redactLength"
+                placeholder="Enter the length of the field"
+              />
+            </div>
+            <div class="form-group">
+              <label for="dataType"
+                >Data Type: Select the data type of the field to be redacted.</label
+              >
+              <select class="form-control dataType" id="dataType">
+                <option selected>str</option>
+                <option>int</option>
+              </select>
+            </div>
+            <button type="button" class="btn-secondary" onclick="clone_row()">
+              Add another value
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-5">
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="redact_file(document.getElementById('inputFileLocation').value, document.getElementById('outputFileLocation').value,  [].map.call(document.querySelectorAll('.recordIndicatorValue'), el => el.value), [].map.call(document.querySelectorAll('.recordStartPosition'), el => el.value), [].map.call(document.querySelectorAll('.redactStartPosition'), el => el.value), [].map.call(document.querySelectorAll('.redactLength'), el => el.value),  [].map.call(document.querySelectorAll('.dataType'), el => el.value))"
+        >
+          Click me
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

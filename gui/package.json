@@ -1,0 +1,23 @@
+{
+  "name": "fixed-width-file-redactor-python-gui",
+  "version": "1.0.0",
+  "description": "A modern front-end for a python script using HTML, CSS, and JavaScript",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/wesleykruger/fixed-width-file-redactor-python-gui",
+  "keywords": [
+    "Electron",
+    "Python",
+    "Front-End"
+  ],
+  "author": "Wes kruger",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^6.0.10"
+  },
+  "dependencies": {
+    "python-shell": "^1.0.8"
+  }
+}
