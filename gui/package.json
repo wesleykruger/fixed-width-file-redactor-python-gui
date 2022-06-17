@@ -15,7 +15,7 @@
   "author": "Wes kruger",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^6.0.10"
+    "electron": "^15.5.5"
   },
   "dependencies": {
     "python-shell": "^1.0.8"
